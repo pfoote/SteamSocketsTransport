@@ -7,6 +7,7 @@ This is a **[Steam Sockets](https://partner.steamgames.com/doc/api/ISteamNetwork
 | **Client** | ✔️ | ✔️ | ❌ |
 | **Listen Server** | ✔️| ✔️ | ❌ | 
 | **Dedicated Server**| ✔️ | ✔️*  | ❌ |
+
 Notes / Cop-outs / Musings: 
 * P2P dedicated servers will need to share their SteamID with clients externally for the time being. P2P Listen servers can use [SteamMatchmaking.CreateLobbyAsync](https://wiki.facepunch.com/steamworks/SteamMatchmaking.CreateLobbyAsync )/ [Lobby.SetLobbyGameServer](https://wiki.facepunch.com/steamworks/Data.Lobby.SetGameServer).
 This is because [ISteamGameServer](https://partner.steamgames.com/doc/api/ISteamGameServer) doesn't support adding SteamID's to be picked up by [RequestInternetServerList](https://partner.steamgames.com/doc/api/ISteamMatchmakingServers#RequestInternetServerList), and [CreateLobby](https://partner.steamgames.com/doc/api/ISteamMatchmaking#CreateLobby) / [SetLobbyGameServer](https://partner.steamgames.com/doc/api/ISteamMatchmaking#SetLobbyGameServer) can't be called from a dedicated server as [ISteamMatchmaking](https://partner.steamgames.com/doc/api/ISteamMatchmaking) needs a running steam client.
